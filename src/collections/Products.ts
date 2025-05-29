@@ -8,6 +8,10 @@ import { AfriHeader } from '@/blocks/afriHeader/config'
 
 export const Products: CollectionConfig = {
   slug: 'products',
+  labels: {
+    singular: 'products detail',
+    plural: 'products Reviews',
+  },
   admin: {
     useAsTitle: 'category',
   },
