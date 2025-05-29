@@ -118,10 +118,10 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ videoFile, descripti
 
             <Button
               onClick={togglePlay}
-              className="absolute z-10 bottom-6 left-6 bg-white text-black hover:bg-black hover:text-white rounded-full p-3 shadow-lg transition-colors duration-200"
+              className="absolute z-10 bottom-6 left-6 bg-white text-black hover:bg-black hover:text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors duration-200"
               variant="ghost"
             >
-              {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+              {isPlaying ? <Pause className="w-8 h-8" /> : <Play className="w-8 h-8" />}
             </Button>
           </div>
         </div>
