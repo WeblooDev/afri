@@ -199,6 +199,7 @@ export interface Page {
     | MediaBlock
     | ArchiveBlock
     | FormBlock
+    | AwardsBlock
     | ImageSectionBlock
     | AfriHeaderBlock
     | ThreeColumnSectionBlock
@@ -760,6 +761,26 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AwardsBlock".
+ */
+export interface AwardsBlock {
+  topRightTitle: string;
+  topRightText: string;
+  columns?:
+    | {
+        heading?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  backgroundImageSection?: (string | null) | Media;
+  backgroundImageDiv?: (string | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'AwardsBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1358,6 +1379,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        AwardsBlock?: T | AwardsBlockSelect<T>;
         imageSectionBlock?: T | ImageSectionBlockSelect<T>;
         afriHeader?: T | AfriHeaderBlockSelect<T>;
         threeColumnSection?: T | ThreeColumnSectionBlockSelect<T>;
@@ -1481,6 +1503,25 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AwardsBlock_select".
+ */
+export interface AwardsBlockSelect<T extends boolean = true> {
+  topRightTitle?: T;
+  topRightText?: T;
+  columns?:
+    | T
+    | {
+        heading?: T;
+        text?: T;
+        id?: T;
+      };
+  backgroundImageSection?: T;
+  backgroundImageDiv?: T;
   id?: T;
   blockName?: T;
 }

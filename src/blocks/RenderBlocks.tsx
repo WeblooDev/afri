@@ -27,6 +27,7 @@ import { CarouselThreeSlide } from './CarouselThreeSlide/Component'
 import AfriHeader from './afriHeader/Component'
 import { Description } from './description/Component'
 import { CarouselDescription } from './carouselDescription/Component'
+import { Awards } from './awards/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -34,7 +35,7 @@ const blockComponents = {
   cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
-  // AwardsBlock: Awards,
+  AwardsBlock: Awards, // ✅ Added block type match from Payload
   imageSectionBlock: ImageSection,
   afriHeader: AfriHeader,
   threeColumnSection: ThreeColumnSection,

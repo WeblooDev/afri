@@ -1,6 +1,6 @@
 import { Block } from 'payload'
 
-export const AwardsBlock: Block = {
+export const Awards: Block = {
   slug: 'AwardsBlock',
   interfaceName: 'AwardsBlock',
   labels: {

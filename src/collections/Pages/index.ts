@@ -12,7 +12,7 @@ import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
-// import { Awards } from '../../blocks/awards/config'
+import { Awards } from '@/blocks/awards/config'
 import { ImageSectionBlock } from '../../blocks/ImageSection/config'
 import { ThreeColumnSectionBlock } from '../../blocks/ThreeColumn/config'
 import { ThreeColumnLayout } from '../../blocks/ThreeColumnLayout/config'
@@ -101,7 +101,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 MediaBlock,
                 Archive,
                 FormBlock,
-                // Awards,
+                Awards,
                 ImageSectionBlock,
                 AfriHeader,
                 ThreeColumnSectionBlock,
