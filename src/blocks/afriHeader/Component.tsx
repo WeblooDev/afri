@@ -13,7 +13,7 @@ const AfriHeader: React.FC<AfriHeaderBlock> = ({ titleTop, titleBottom, reverseL
       )}
       <div className="h-[2px] w-full bg-black" />
       {titleBottom && (
-        <h1 className="text-3xl md:text-5xl lg:text-8xl">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
           <span className="whitespace-nowrap">{titleBottom}</span>
         </h1>
       )}

@@ -38,7 +38,7 @@ export default async function ProductPage({ params }: any) {
         {product.data?.categoryDescription}
       </p>
 
-      <div className="container grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12">
+      <div className="container grid gap-10 grid-cols-2 lg:grid-cols-3 mb-8">
         {product.data?.images?.map((img: any, i: number) => (
           <div className="flex flex-col items-center gap-6" key={i}>
             {img.image?.url && (
@@ -47,7 +47,7 @@ export default async function ProductPage({ params }: any) {
                 alt={img.title}
                 width={400}
                 height={300}
-                className="rounded shadow"
+                className="rounded-2xl shadow h-full max-h-[400px]"
               />
             )}
             <p className="text-center text-lg mt-2">{img.title}</p>

@@ -52,15 +52,15 @@ export const ProductsListBlockComponent: React.FC<ProductsListBlockProps> = asyn
             )}
 
             <div className="grid gap-10 grid-cols-2 lg:grid-cols-3 mb-8">
-              {product.data?.images?.map((img: any, i: number) => (
-                <div className="flex flex-col items-center gap-4" key={i}>
+              {product.data?.images?.slice(0, 6).map((img: any, i: number) => (
+                <div className="flex flex-col items-center gap-6" key={i}>
                   {img.image?.url && (
                     <Image
                       src={img.image.url}
                       alt={img.title}
-                      width={300}
-                      height={200}
-                      className="rounded object-cover"
+                      width={400}
+                      height={300}
+                      className="rounded-2xl shadow h-full max-h-[400px]"
                     />
                   )}
                   <p className="text-sm lg:text-xl text-center mt-1">{img.title}</p>

@@ -36,7 +36,7 @@ export const CTAButton: React.FC<CTAButtonProps> = ({
     },
     dark: {
       base: 'bg-black text-white border-black',
-      hover: 'hover:bg-white hover:text-black',
+      hover: 'hover:bg-white hover:text-black hover:border-black',
       border: 'border-black',
     },
   }
@@ -45,7 +45,7 @@ export const CTAButton: React.FC<CTAButtonProps> = ({
 
   const content = (
     <span className="flex items-center gap-2">
-      <span className={`transition-colors ${textClassName}`}>{text}</span>
+      <span className={`transition-colors text-xl lg:text-2xl ${textClassName}`}>{text}</span>
       {arrow && <ArrowRight className={`w-4 h-4 ${iconClassName}`} />}
     </span>
   )
