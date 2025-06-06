@@ -52,7 +52,6 @@ export const Footer: GlobalConfig = {
       name: 'webLinks',
       type: 'array',
       label: 'Website Links',
-      maxRows: 4, // restrict to 2 rows x 2 cols
       fields: [
         link({
           overrides: {

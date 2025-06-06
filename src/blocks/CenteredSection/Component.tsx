@@ -23,8 +23,13 @@ export const CenteredSection: React.FC<CenteredSectionBlock> = ({
 
           {miniTitleBottom && <h3 className="text-lg">{miniTitleBottom}</h3>}
 
-          {shortText && <p className="text-3xl">{shortText}</p>}
-
+          <a
+            target="_blank"
+            href="https://www.google.com/maps/search/261+Boulevard+Allal+Ben+Abdellah+Hay+Al+Andalousse+Temara,+12040+Morocco./@33.9366581,-6.9215724,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDYwMi4wIKXMDSoASAFQAw%3D%3D"
+          >
+            {' '}
+            {shortText && <p className="text-3xl">{shortText}</p>}
+          </a>
           {longText && <p className="text-base	max-w-[60%]">{longText}</p>}
         </div>
       </div>

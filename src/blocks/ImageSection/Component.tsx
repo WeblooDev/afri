@@ -48,22 +48,14 @@ export const ImageSection: React.FC<ImageSectionBlock> = ({
         {/* Bottom div with button and link */}
         <div className="relative z-10 flex flex-col-reverse lg:flex-row gap-8 justify-start lg:justify-between items-start lg:items-center w-full mt-auto pt-12">
           <CTAButton
-            href={linkUrl ?? '#'}
+            href="/produits"
             text={buttonText ?? 'Get Started'}
             arrow={false}
             variant="transparent"
             className="px-4 py-6 border-white"
           />
 
-          <div className="flex items-center space-x-2">
-            <a
-              href={linkUrl ?? '#'}
-              className="text-white hover:underline font-medium flex items-center"
-            >
-              {linkText}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-          </div>
+          <div className="flex items-center space-x-2"></div>
         </div>
       </div>
     </section>

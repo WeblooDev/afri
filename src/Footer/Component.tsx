@@ -51,15 +51,30 @@ export async function Footer() {
 
             {/* Row 2: Website Links – 2 columns x 2 rows */}
             <div className="grid grid-cols-2 gap-4">
-              {(webLinks ?? []).slice(0, 4).map((item, i) => (
-                <Link
-                  key={i}
-                  href={item.link?.url || '#'}
-                  className="flex justify-center lg:justify-start text-xl lg:text-2xl hover:underline"
-                >
-                  {item.link?.label}
-                </Link>
-              ))}
+              <a
+                href="/a-propos"
+                className="flex justify-center lg:justify-start text-xl lg:text-2xl hover:underline"
+              >
+                À propos
+              </a>
+              <a
+                href="/projects"
+                className="flex justify-center lg:justify-start text-xl lg:text-2xl hover:underline"
+              >
+                Project
+              </a>
+              <a
+                href="/produits"
+                className="flex justify-center lg:justify-start text-xl lg:text-2xl hover:underline"
+              >
+                Produits
+              </a>
+              <a
+                href="/adresses"
+                className="flex justify-center lg:justify-start text-xl lg:text-2xl hover:underline"
+              >
+                Nos adresses
+              </a>
             </div>
           </div>
 

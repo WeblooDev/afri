@@ -27,6 +27,7 @@ export const FeatureSection: React.FC<FeatureSectionBlock> = ({
               arrow={false}
               variant="dark"
               className="px-4 py-6 border-white"
+              
             />
           </div>
 

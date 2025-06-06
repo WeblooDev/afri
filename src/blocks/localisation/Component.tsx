@@ -25,6 +25,7 @@ export const localisation: React.FC<LocalisationBlock> = ({
                   text={buttonText ?? 'Get Started'}
                   arrow={true}
                   variant="dark"
+                  newTab={true}
                 />
               </div>
             </div>

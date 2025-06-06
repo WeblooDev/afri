@@ -42,11 +42,11 @@ export const Carousel: React.FC<CarouselProps> = ({ carouselItems }) => {
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
             {carouselItems.map((item, index) => (
-              <div key={index} className="embla__slide rounded-3xl m-2 w-full sm:w-1/2">
+              <div key={index} className="embla__slide rounded-3xl w-full sm:w-1/2">
                 <Media
                   resource={item.image}
                   alt={item.imgAlt}
-                  imgClassName="w-full h-auto rounded-3xl max-h-[550px] object-cover p-4 overflow-hidden"
+                  imgClassName="w-full h-[300px] lg:h-[500px] rounded-3xl max-h-[500px] object-cover p-0 lg:p-4 overflow-hidden"
                 />
               </div>
             ))}

@@ -78,58 +78,85 @@ export const HeaderClient: React.FC<{ data: Header }> = ({ data }) => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white px-6 pb-6 pt-4 border-t border-gray-200">
           <nav className="flex flex-col space-y-4">
-            {(data.navItems || []).map((item, i) => {
-              const hasDropdown = Array.isArray(item.subItems) && item.subItems.length > 0
+            <Link
+              href="/"
+              className="text-xl text-black hover:underline"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Accueil
+            </Link>
 
-              if (hasDropdown) {
-                const isOpen = openDropdownIndex === i
+            <Link
+              href="/a-propos"
+              className="text-xl text-black hover:underline"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              À propos
+            </Link>
 
-                return (
-                  <div key={i} className="flex flex-col">
-                    <button
-                      onClick={() => setOpenDropdownIndex(isOpen ? null : i)}
-                      className="flex items-center justify-between w-full text-left text-xl text-black hover:underline"
-                    >
-                      {item.label}
-                      {isOpen ? (
-                        <ChevronUp className="w-4 h-4 ml-2" />
-                      ) : (
-                        <ChevronDown className="w-4 h-4 ml-2" />
-                      )}
-                    </button>
-                    {isOpen && (
-                      <div className="mt-2 flex flex-col gap-4">
-                        {item.subItems?.map((sub, j) => (
-                          <Link
-                            key={j}
-                            href={sub.link?.url || '#'}
-                            className="text-base text-black hover:underline"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            {sub.link?.label || 'Unnamed'}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )
-              }
-
-              return item.link ? (
+            <div className="flex flex-col">
+              <div className="flex items-center justify-between">
                 <Link
-                  key={i}
-                  href={item.link.url || '#'}
+                  href="/produits"
                   className="text-xl text-black hover:underline"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.label}
+                  Produit
                 </Link>
-              ) : (
-                <span key={i} className="text-lg text-black">
-                  {item.label}
-                </span>
-              )
-            })}
+                <button
+                  onClick={() => setOpenDropdownIndex(openDropdownIndex === 0 ? null : 0)}
+                  className="ml-2"
+                >
+                  {openDropdownIndex === 0 ? (
+                    <ChevronUp className="w-5 h-5" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5" />
+                  )}
+                </button>
+              </div>
+
+              {openDropdownIndex === 0 && (
+                <div className="mt-2 flex flex-col gap-4 pl-4">
+                  <Link
+                    href="/produits/Marble"
+                    className="text-base text-black hover:underline"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Marble
+                  </Link>
+                  <Link
+                    href="/produits/Quartzites"
+                    className="text-base text-black hover:underline"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Quartzite
+                  </Link>
+                  <Link
+                    href="/produits/Pierre"
+                    className="text-base text-black hover:underline"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Pierre
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/projects"
+              className="text-xl text-black hover:underline"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Projets
+            </Link>
+
+            <Link
+              href="/adresses"
+              className="text-xl text-black hover:underline"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Nos adresses
+            </Link>
 
             <Link
               href="/contact"

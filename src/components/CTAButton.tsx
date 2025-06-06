@@ -13,6 +13,7 @@ type CTAButtonProps = {
   textClassName?: string
   iconClassName?: string
   onClick?: () => void
+  newTab?: boolean
 }
 
 export const CTAButton: React.FC<CTAButtonProps> = ({
@@ -24,6 +25,7 @@ export const CTAButton: React.FC<CTAButtonProps> = ({
   textClassName = '',
   iconClassName = '',
   onClick,
+  newTab = false,
 }) => {
   const baseClasses =
     'items-center justify-center gap-2 transition-all duration-300 border rounded-full text-3xl !py-2 !px-6 font-normal'
@@ -54,6 +56,8 @@ export const CTAButton: React.FC<CTAButtonProps> = ({
     return (
       <Link
         href={href}
+        target={newTab ? '_blank' : undefined}
+        rel={newTab ? 'noopener noreferrer' : undefined}
         className={`${baseClasses} ${variantClasses} ${className}`}
         onClick={onClick}
       >

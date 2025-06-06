@@ -31,7 +31,6 @@ export const ProductsListBlockComponent: React.FC<ProductsListBlockProps> = asyn
           Découvrez une gamme complète de matériaux nobles sélectionnés pour s’adapter à vos
           projets.
         </p>
-        <CTAButton href="Nos projets" text="Nos projets" arrow={true} variant="dark" />
       </div>
       <div className="w-full flex flex-col container">
         {products.map((product: any) => (

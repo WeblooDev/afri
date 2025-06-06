@@ -64,19 +64,23 @@ export const Hero: React.FC<HeroBlock> = ({
             <div className="flex flex-col justify-end gap-4 ">
               <div className="group relative  overflow-hidden rounded-lg">
                 <Media resource={smallImage1} className="h-full w-full object-cover" />
-                <div className="absolute right-3 top-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <div className="rounded-full bg-white/90 p-2 shadow-sm">
-                    <Image src={filledTitleArrow} alt="titledArrow" width={36} height={36} />
+                <a href="/produits">
+                  <div className="absolute right-3 top-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="rounded-full bg-white/90 p-2 shadow-sm">
+                      <Image src={filledTitleArrow} alt="titledArrow" width={36} height={36} />
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
               <div className="group relative overflow-hidden rounded-lg">
                 <Media resource={smallImage2} className="h-full w-full object-cover" />
-                <div className="absolute right-3 top-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <div className="rounded-full bg-white/90 p-2 shadow-sm">
-                    <Image src={filledTitleArrow} alt="titledArrow" width={36} height={36} />
+                <a href="/produits">
+                  <div className="absolute right-3 top-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="rounded-full bg-white/90 p-2 shadow-sm">
+                      <Image src={filledTitleArrow} alt="titledArrow" width={36} height={36} />
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
