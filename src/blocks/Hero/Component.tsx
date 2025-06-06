@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroBlock> = ({
                 resource={mainImage}
                 imgClassName="max-h-[400px] h-full w-full object-cover rounded-3xl lg:rounded-none lg:max-h-none"
               />
-              <div className="absolute bottom-4 right-4 flex items-center  px-3 py-2 text-white">
+              <div className="absolute bottom-4 right-4 flex items-center px-3 py-2 text-white">
                 <Link
                   href={mainImageLink?.url || '#'}
                   className="flex items-center text-sm font-medium hover:underline"
@@ -62,25 +62,25 @@ export const Hero: React.FC<HeroBlock> = ({
             </div>
 
             <div className="flex flex-col justify-end gap-4 ">
-              <div className="group relative  overflow-hidden rounded-lg">
+              <div className="group relative overflow-hidden rounded-lg">
                 <Media resource={smallImage1} className="h-full w-full object-cover" />
-                <a href="/produits">
+                <Link href="/produits" className="absolute inset-0">
                   <div className="absolute right-3 top-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <div className="rounded-full bg-white/90 p-2 shadow-sm">
                       <Image src={filledTitleArrow} alt="titledArrow" width={36} height={36} />
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
               <div className="group relative overflow-hidden rounded-lg">
                 <Media resource={smallImage2} className="h-full w-full object-cover" />
-                <a href="/produits">
+                <Link href="/produits" className="absolute inset-0">
                   <div className="absolute right-3 top-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <div className="rounded-full bg-white/90 p-2 shadow-sm">
                       <Image src={filledTitleArrow} alt="titledArrow" width={36} height={36} />
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
