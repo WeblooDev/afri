@@ -100,7 +100,7 @@ export const FormBlock: React.FC<
   )
 
   return (
-    <div className="container mt-[100px] flex flex-col md:flex-row items-center gap-6">
+    <div className="container mt-[100px] flex flex-col md:flex-row items-center gap-10">
       <div className="flex flex-col gap-4 w-full md:w-[50%]">
         {!hasSubmitted && (
           <>
