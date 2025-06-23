@@ -4,7 +4,6 @@ import { VideoSectionBlock } from '@/blocks/VideoSection/config'
 import { CarouselThreeSlideBlock } from '@/blocks/CarouselThreeSlide/config'
 import { CarouselBlock } from '@/blocks/carousel/config'
 import { AfriHeader } from '@/blocks/afriHeader/config'
-// import { HeaderDescriptionBlock } from '@/blocks/afriHeader copy/config'
 
 export const Products: CollectionConfig = {
   slug: 'products',

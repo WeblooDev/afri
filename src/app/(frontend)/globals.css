@@ -250,3 +250,10 @@ html[data-theme='light'] {
 .embla__dot--selected:after {
   box-shadow: inset 0 0 0 0.2rem var(--text-body);
 }
+
+
+.ring-offset-background{
+  background-color: white ;
+   border-radius: 2rem;
+   padding: 1.3rem 1rem;
+}
