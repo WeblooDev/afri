@@ -172,7 +172,7 @@ export const FormBlock: React.FC<
 
       <div className="w-full md:w-[50%] !rounded-2xl">
         <Image
-          src="/media/location.png"
+          src="/location.png"
           alt="Notre localisation"
           width={600}
           height={700}
