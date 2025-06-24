@@ -23,7 +23,7 @@ export const MultiRowSection: React.FC<MultiRowSectionBlock> = ({
       {/* First Row */}
       <div className="flex flex-col lg:flex-row justify-between items-center gap-6 mb-12">
         {/* Left Column */}
-        <div className="flex flex-col w-[40%] justify-center items-center lg:items-start gap-6">
+        <div className="flex flex-col w-full lg:w-[40%] justify-center items-center lg:items-start gap-6">
           <h3 className="text-base lg:text-lg text-center md:text-start">{label}</h3>
           <div className="rounded-lg overflow-hidden">
             <Media resource={image1} className="w-full h-auto block object-cover rounded-4xl" />

@@ -18,14 +18,14 @@ export const Awards: React.FC<AwardsBlock> = ({
             fill
             priority
             resource={backgroundImageSection}
-            imgClassName="w-full h-full rounded-4xl"
+            imgClassName="w-full h-full rounded-[3rem] md:rounded-4xl"
           />
         )}
       </div>
 
       <div className="relative z-10 text-center lg:text-right m-8">
-        <h2 className="text-5xl lg:text-8xl text-white">{topRightTitle}</h2>
-        <p className="text-5xl lg:text-8xl text-white ">{topRightText}</p>
+        <h2 className="text-xl md:text-5xl lg:text-8xl text-white">{topRightTitle}</h2>
+        <p className="text-xl md:text-5xl lg:text-8xl text-white ">{topRightText}</p>
       </div>
 
       {/* Background Image for Div */}
@@ -35,15 +35,17 @@ export const Awards: React.FC<AwardsBlock> = ({
             fill
             priority
             resource={backgroundImageDiv}
-            imgClassName="w-full h-full absolute inset-0 z-0 rounded-xl lg:rounded-tr-xl lg:rounded-br-xl "
+            imgClassName="w-full h-full absolute inset-0 z-0 rounded-xl  lg:rounded-tr-xl lg:rounded-br-xl "
           />
         )}
         <div className="relative z-10  ">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {columns?.map((col, i) => (
-              <div key={i} className="flex flex-col items-center text-sm">
+              <div key={i} className="flex flex-col items-center text-sm text-center">
                 {col.heading && (
-                  <h3 className="font-light text-black text-3xl lg:text-5xl">{col.heading}</h3>
+                  <h3 className="font-light text-black text-xl md:text-3xl lg:text-5xl">
+                    {col.heading}
+                  </h3>
                 )}
                 {col.text && (
                   <p className="font-light text-black text-xl lg:text-2xl">{col.text}</p>
