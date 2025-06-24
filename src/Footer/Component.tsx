@@ -55,16 +55,16 @@ export async function Footer() {
             {/* Internal Page Links */}
             <div className="grid grid-cols-2 gap-4">
               <Link
-                href="/a-propos"
+                href="/-propos"
                 className="flex justify-center lg:justify-start text-xl lg:text-2xl hover:underline"
               >
                 À propos
               </Link>
               <Link
-                href="/projects"
+                href="/projets"
                 className="flex justify-center lg:justify-start text-xl lg:text-2xl hover:underline"
               >
-                Project
+                Projets
               </Link>
               <Link
                 href="/produits"
@@ -73,7 +73,7 @@ export async function Footer() {
                 Produits
               </Link>
               <Link
-                href="/adresses"
+                href="/adresse"
                 className="flex justify-center lg:justify-start text-xl lg:text-2xl hover:underline"
               >
                 Nos adresses

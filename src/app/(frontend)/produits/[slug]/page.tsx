@@ -50,7 +50,7 @@ export default async function ProductPage({ params }: any) {
                 className="rounded-2xl shadow h-full max-h-[400px]"
               />
             )}
-            <p className="text-center text-lg mt-2">{img.title}</p>
+            <p className="text-center text-lg mt-2 font">{img.title}</p>
           </div>
         ))}
       </div>
