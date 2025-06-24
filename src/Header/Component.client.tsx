@@ -87,7 +87,7 @@ export const HeaderClient: React.FC<{ data: Header }> = ({ data }) => {
             </Link>
 
             <Link
-              href="/a-propos"
+              href="/-propos"
               className="text-xl text-black hover:underline"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -143,7 +143,7 @@ export const HeaderClient: React.FC<{ data: Header }> = ({ data }) => {
             </div>
 
             <Link
-              href="/projects"
+              href="/projets"
               className="text-xl text-black hover:underline"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -151,7 +151,7 @@ export const HeaderClient: React.FC<{ data: Header }> = ({ data }) => {
             </Link>
 
             <Link
-              href="/adresses"
+              href="/adresse"
               className="text-xl text-black hover:underline"
               onClick={() => setMobileMenuOpen(false)}
             >
