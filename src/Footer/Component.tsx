@@ -81,6 +81,7 @@ export async function Footer() {
             </div>
           </div>
 
+
           {/* Column 3: Social + Address */}
           <div className="flex flex-col-reverse lg:flex-col gap-6 justify-between items-end">
             <div className="text-center lg:text-end text-black text-xl lg:text-2xl">
