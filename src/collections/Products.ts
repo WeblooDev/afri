@@ -4,6 +4,16 @@ import { VideoSectionBlock } from '@/blocks/VideoSection/config'
 import { CarouselThreeSlideBlock } from '@/blocks/CarouselThreeSlide/config'
 import { CarouselBlock } from '@/blocks/carousel/config'
 import { AfriHeader } from '@/blocks/afriHeader/config'
+import {
+  MetaDescriptionField,
+  MetaImageField,
+  MetaTitleField,
+  OverviewField,
+  PreviewField,
+} from '@payloadcms/plugin-seo/fields'
+import { slugField } from '@/fields/slug'
+import { revalidatePage } from './Pages/hooks/revalidatePage'
+import { populatePublishedAt } from '@/hooks/populatePublishedAt'
 
 export const Products: CollectionConfig = {
   slug: 'products',
@@ -12,7 +22,13 @@ export const Products: CollectionConfig = {
     plural: 'products Reviews',
   },
   admin: {
+    defaultColumns: ['slug', 'updatedAt'],
+
     useAsTitle: 'category',
+  },
+  defaultPopulate: {
+    title: true,
+    slug: true,
   },
   fields: [
     {
@@ -83,7 +99,39 @@ export const Products: CollectionConfig = {
             },
           ],
         },
+        {
+          name: 'meta',
+          label: 'SEO',
+          fields: [
+            OverviewField({
+              titlePath: 'meta.title',
+              descriptionPath: 'meta.description',
+              imagePath: 'meta.image',
+            }),
+            MetaTitleField({
+              hasGenerateFn: true,
+            }),
+            MetaImageField({
+              relationTo: 'media',
+            }),
+
+            MetaDescriptionField({}),
+            PreviewField({
+              // if the `generateUrl` function is configured
+              hasGenerateFn: true,
+
+              // field paths to match the target field for data
+              titlePath: 'meta.title',
+              descriptionPath: 'meta.description',
+            }),
+          ],
+        },
       ],
     },
+    ...slugField(),
   ],
+  hooks: {
+    afterChange: [revalidatePage],
+    beforeChange: [populatePublishedAt],
+  },
 }
