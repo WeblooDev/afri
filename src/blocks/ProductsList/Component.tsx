@@ -45,7 +45,7 @@ export const ProductsListBlockComponent: React.FC<ProductsListBlockProps> = asyn
             </div>
 
             {product.data?.categoryDescription && (
-              <p className="w-auto text-center lg:text-start lg:w-[40%] mb-4 text-base lg:text-lg">
+              <p className="w-auto text-center lg:text-start  mb-4 text-base lg:text-lg">
                 {product.data.categoryDescription}
               </p>
             )}
