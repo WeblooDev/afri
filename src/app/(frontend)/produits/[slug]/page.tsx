@@ -47,7 +47,7 @@ export default async function ProductPage({ params }: any) {
 
         <div className="container grid gap-10 grid-cols-2 lg:grid-cols-3 mb-8">
           {product.data?.images?.map((img: any, i: number) => (
-            <div className="flex flex-col items-center gap-6" key={i}>
+            <div className="flex flex-col items-center gap-6 " key={i}>
               {img.image?.url && (
                 <Image
                   src={img.image.url}
