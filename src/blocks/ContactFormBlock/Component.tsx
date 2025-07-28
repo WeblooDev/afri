@@ -1,36 +1,38 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Media } from '@/components/Media'
 import type { ContactFormBlock } from '@/payload-types'
 import { CTAButton } from '@/components/CTAButton'
 
-export const ContactForm: React.FC<ContactFormBlock> = ({ 
-  title, 
-  description, 
-  submit, 
-  mainImages, 
-  autoScrollSpeed = 3 
-}) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+export const ContactForm: React.FC<ContactFormBlock> = ({ title, description, submit, image }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  })
 
-  // Auto-scroll effect
-  useEffect(() => {
-    if (!mainImages || mainImages.length <= 1) return
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
 
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === mainImages.length - 1 ? 0 : prevIndex + 1
-      )
-    }, (autoScrollSpeed || 3) * 1000)
+    // Track lead conversion with Meta Pixel
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Lead');
+    }
 
-    return () => clearInterval(interval)
-  }, [mainImages, autoScrollSpeed])
+    // Handle form submission here
+    console.log('Form submitted:', formData)
+  }
 
-  const currentMainImage = mainImages?.[currentImageIndex]
-  const currentSmallImages = currentMainImage?.smallImages || []
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }))
+  }
 
   return (
     <section className="w-full pt-[100px] bg-white text-black">
@@ -39,29 +41,39 @@ export const ContactForm: React.FC<ContactFormBlock> = ({
           <div>
             <h2 className="text-3xl md:text-7xl">{title}</h2>
           </div>
-          <div className="flex flex-col gap-6">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             <Input
               className="bg-white text-black border-[1.74px] border-black text-[24.36px] rounded-full p-8"
               id="name"
               placeholder="Nom complet"
+              value={formData.name}
+              onChange={(e) => handleInputChange('name', e.target.value)}
+              required
             />
             <Input
               className="bg-white text-black border-[1.74px] border-black text-[24.36px] rounded-full p-8"
               id="email"
               type="email"
               placeholder="Adresse e-mail"
+              value={formData.email}
+              onChange={(e) => handleInputChange('email', e.target.value)}
+              required
             />
             <Input
               className="bg-white text-black border-[1.74px] border-black text-[24.36px] rounded-full p-8"
-              id="phone1"
+              id="phone"
               type="tel"
               placeholder="Numéro de téléphone"
+              value={formData.phone}
+              onChange={(e) => handleInputChange('phone', e.target.value)}
             />
             <Input
               className="bg-white text-black border-[1.74px] border-black text-[24.36px] rounded-full p-8"
-              id="phone2"
-              type="tel"
+              id="message"
               placeholder="Message"
+              value={formData.message}
+              onChange={(e) => handleInputChange('message', e.target.value)}
+              required
             />
             <CTAButton
               className="flex items-center p-12"
@@ -69,60 +81,20 @@ export const ContactForm: React.FC<ContactFormBlock> = ({
               arrow={false}
               variant="dark"
             />
-          </div>
+          </form>
           <div>
             <p className="text-base">{description}</p>
           </div>
         </div>
 
         <div className="relative flex items-center justify-center w-full lg:w-[45%] rounded-3xl p-12 lg:p-0 lg:rounded-tl-[1rem] lg:rounded-bl-[1rem]">
-          {/* Main Image with Auto-scroll */}
-          <div className="relative w-full rounded-tl-[1rem] rounded-bl-[1rem] overflow-hidden">
-            {currentMainImage && (
-              <div className="relative">
-                <Media
-                  resource={currentMainImage.image}
-                  priority
-                  imgClassName="w-full h-full object-cover max-h-[700px] rounded-tl-[1rem] rounded-bl-[1rem] transition-opacity duration-500"
-                />
-                
-                {/* Small Images Overlay */}
-                {currentSmallImages.length > 0 && (
-                  <div className="absolute bottom-4 right-4 flex gap-2">
-                    {currentSmallImages.map((smallImage, index) => (
-                      <div 
-                        key={index} 
-                        className="w-16 h-16 rounded-lg overflow-hidden border-2 border-white shadow-lg"
-                      >
-                        <Media
-                          resource={smallImage.image}
-                          imgClassName="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
+          <div className="relative w-full rounded-tl-[1rem] rounded-bl-[1rem]">
+            <Media
+              resource={image}
+              priority
+              imgClassName="w-full h-full object-cover max-h-[700px] rounded-tl-[1rem] rounded-bl-[1rem]"
+            />
           </div>
-
-          {/* Image Navigation Dots */}
-          {mainImages && mainImages.length > 1 && (
-            <div className="absolute bottom-4 left-4 flex gap-2">
-              {mainImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentImageIndex 
-                      ? 'bg-white scale-125' 
-                      : 'bg-white/50 hover:bg-white/75'
-                  }`}
-                  aria-label={`Go to image ${index + 1}`}
-                />
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </section>

@@ -21,7 +21,7 @@ interface CarouselFourSlideProps {
   linkUrl?: string
 }
 
-export const CarouselFourSlide: React.FC<CarouselFourSlideProps> = ({ 
+export const CarouselFourSlide: React.FC<CarouselFourSlideProps> = ({
   carouselItems,
   titleTop,
   buttonText,
@@ -43,19 +43,17 @@ export const CarouselFourSlide: React.FC<CarouselFourSlideProps> = ({
   }, [emblaApi])
 
   return (
-    <section className="container w-full p-12 flex flex-col gap-6 -mt-6">
-      {/* Top section - Description on the right */}
+    <section className="container w-full pb-12 flex flex-col gap-6 ">
+
       {titleTop && (
-        <div className="flex flex-col lg:flex-row justify-end items-end gap-8">
+        <div className="flex flex-col lg:flex-row justify-end items-end ">
           <div className="w-full lg:w-[40%] flex justify-end">
             <p className="text-lg text-center lg:text-end">{titleTop}</p>
           </div>
         </div>
       )}
 
-      {/* Middle section - Carousel */}
       <div className="relative">
-        {/* Left navigation button */}
         <button
           onClick={scrollPrev}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 transition-transform duration-300 hover:scale-110"
@@ -91,7 +89,6 @@ export const CarouselFourSlide: React.FC<CarouselFourSlideProps> = ({
         </button>
       </div>
 
-      {/* Bottom section - Button on the right */}
       {(buttonText || linkUrl) && (
         <div className="flex flex-col lg:flex-row justify-center lg:justify-end items-center lg:items-end gap-8">
           <div className="w-full lg:w-auto flex justify-center lg:justify-end">

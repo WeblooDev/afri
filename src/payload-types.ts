@@ -1065,21 +1065,8 @@ export interface ContactFormBlock {
   title?: string | null;
   description?: string | null;
   submit?: string | null;
-  mainImages?:
-    | {
-        image: string | Media;
-        imageAlt?: string | null;
-        smallImages?:
-          | {
-              image: string | Media;
-              imageAlt?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
-  autoScrollSpeed?: number | null;
+  image?: (string | null) | Media;
+  imageAlt?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'contactFormBlock';
@@ -1839,21 +1826,8 @@ export interface ContactFormBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   submit?: T;
-  mainImages?:
-    | T
-    | {
-        image?: T;
-        imageAlt?: T;
-        smallImages?:
-          | T
-          | {
-              image?: T;
-              imageAlt?: T;
-              id?: T;
-            };
-        id?: T;
-      };
-  autoScrollSpeed?: T;
+  image?: T;
+  imageAlt?: T;
   id?: T;
   blockName?: T;
 }
