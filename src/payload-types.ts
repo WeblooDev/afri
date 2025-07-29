@@ -954,13 +954,19 @@ export interface HeroBlock {
   description: string;
   buttonText: string;
   buttonLink?: string | null;
-  mainImage: string | Media;
   mainImageLink: {
     url: string;
     label?: string | null;
   };
-  smallImage1: string | Media;
-  smallImage2: string | Media;
+  images?:
+    | {
+        mainImage: string | Media;
+        smallImage1: string | Media;
+        smallImage2: string | Media;
+        id?: string | null;
+      }[]
+    | null;
+  autoScrollSpeed?: number | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hero';
@@ -982,6 +988,9 @@ export interface DescriptionBlock {
  * via the `definition` "CarouselFourSlideBlock".
  */
 export interface CarouselFourSlideBlock {
+  titleTop?: string | null;
+  buttonText?: string | null;
+  linkUrl?: string | null;
   carouselItems: {
     image: string | Media;
     imgAlt: string;
@@ -1707,15 +1716,21 @@ export interface HeroBlockSelect<T extends boolean = true> {
   description?: T;
   buttonText?: T;
   buttonLink?: T;
-  mainImage?: T;
   mainImageLink?:
     | T
     | {
         url?: T;
         label?: T;
       };
-  smallImage1?: T;
-  smallImage2?: T;
+  images?:
+    | T
+    | {
+        mainImage?: T;
+        smallImage1?: T;
+        smallImage2?: T;
+        id?: T;
+      };
+  autoScrollSpeed?: T;
   id?: T;
   blockName?: T;
 }
@@ -1735,6 +1750,9 @@ export interface DescriptionBlockSelect<T extends boolean = true> {
  * via the `definition` "CarouselFourSlideBlock_select".
  */
 export interface CarouselFourSlideBlockSelect<T extends boolean = true> {
+  titleTop?: T;
+  buttonText?: T;
+  linkUrl?: T;
   carouselItems?:
     | T
     | {

@@ -9,6 +9,24 @@ export const CarouselFourSlideBlock: Block = {
   },
   fields: [
     {
+      name: 'titleTop',
+      label: 'Top Title',
+      type: 'text',
+      required: false,
+    },
+    {
+      name: 'buttonText',
+      label: 'Button Text',
+      type: 'text',
+      defaultValue: 'Get Started',
+    },
+    {
+      name: 'linkUrl',
+      label: 'Button Link URL',
+      type: 'text',
+      defaultValue: '#',
+    },
+    {
       name: 'carouselItems',
       type: 'array',
       label: 'Carousel Items',

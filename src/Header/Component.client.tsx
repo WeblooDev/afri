@@ -51,13 +51,6 @@ export const HeaderClient: React.FC<{ data: Header }> = ({ data }) => {
           <HeaderNav items={data.navItems || []} />
         </div>
 
-        {/* Contact for Desktop */}
-        <div className="hidden lg:block">
-          <Link href="/contact" className="text-black text-lg hover:underline cursor-pointer">
-            Contact
-          </Link>
-        </div>
-
         {/* Mobile Toggle Button */}
         <button
           className="lg:hidden p-2 rounded-full hover:bg-gray-100"
@@ -148,14 +141,6 @@ export const HeaderClient: React.FC<{ data: Header }> = ({ data }) => {
               onClick={() => setMobileMenuOpen(false)}
             >
               Projets
-            </Link>
-
-            <Link
-              href="/adresse"
-              className="text-xl text-black hover:underline"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Nos adresses
             </Link>
 
             <Link

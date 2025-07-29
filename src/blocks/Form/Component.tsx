@@ -50,6 +50,11 @@ export const FormBlock: React.FC<
       const submitForm = async () => {
         setError(undefined)
 
+        // Track lead conversion with Meta Pixel
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Lead');
+        }
+
         const dataToSend = Object.entries(data).map(([name, value]) => ({
           field: name,
           value,
