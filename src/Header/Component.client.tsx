@@ -36,7 +36,7 @@ export const HeaderClient: React.FC<{ data: Header }> = ({ data }) => {
         isVisible ? 'translate-y-0 mt-4' : '-translate-y-full'
       }`}
     >
-      <div className="p-4 flex items-center justify-between text-black">
+      <div className="p-4 flex items-center text-black">
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link href="/">
@@ -47,13 +47,13 @@ export const HeaderClient: React.FC<{ data: Header }> = ({ data }) => {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block flex-1 flex justify-center">
           <HeaderNav items={data.navItems || []} />
         </div>
 
         {/* Mobile Toggle Button */}
         <button
-          className="lg:hidden p-2 rounded-full hover:bg-gray-100"
+          className="lg:hidden p-2 rounded-full hover:bg-gray-100 ml-auto"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

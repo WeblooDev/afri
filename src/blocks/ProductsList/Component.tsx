@@ -4,14 +4,10 @@ import Link from 'next/link'
 import { CTAButton } from '@/components/CTAButton'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
+import type { Product } from '@/payload-types'
 
-interface ProductsListBlockProps {
-  title: string
-  disableInnerContainer?: boolean
-}
-
-export const ProductsListBlockComponent: React.FC<ProductsListBlockProps> = async ({ title }) => {
-  let products: any[] = []
+export const ProductsListBlockComponent: React.FC<{ title: string; disableInnerContainer?: boolean }> = async ({ title }) => {
+  let products: Product[] = []
 
   try {
     const payload = await getPayload({ config })
@@ -28,11 +24,9 @@ export const ProductsListBlockComponent: React.FC<ProductsListBlockProps> = asyn
     products = []
   }
 
-  // Shuffle products array
-  const shuffledProducts = [...products].sort(() => Math.random() - 0.5)
+  const displayProducts = products
 
-  // Clean light colors for some items
-  const lightColors = ['bg-white', 'bg-gray-50', 'bg-slate-50']
+  const lightColor = 'bg-gray-50'
 
   return (
     <section className="mt-[120px] ">
@@ -44,7 +38,7 @@ export const ProductsListBlockComponent: React.FC<ProductsListBlockProps> = asyn
         </p>
       </div>
       <div className="w-full flex flex-col container">
-        {shuffledProducts.map((product: any, productIndex: number) => (
+        {displayProducts.map((product: Product, productIndex: number) => (
           <div key={product.id} className="flex flex-col gap-10 w-full ">
             <div className="w-full flex flex-col lg:flex-row gap-6 lg:gap-12 items-center">
               <div className="h-[2px] w-full bg-black" />
@@ -64,19 +58,13 @@ export const ProductsListBlockComponent: React.FC<ProductsListBlockProps> = asyn
             )}
 
             <div className="grid gap-10 grid-cols-2 lg:grid-cols-3 mb-8">
-              {product.data?.images?.slice(0, 6).map((img: any, i: number) => {
-                // Apply lighter colors to some items (every 2nd and 3rd item)
-                const shouldUseLightColor = i % 3 === 1 || i % 3 === 2
-                const lightColor = lightColors[i % lightColors.length]
-
+              {[...(product.data?.images || [])].sort(() => Math.random() - 0.5).slice(0, 6).map((img, i: number) => {
                 return (
                   <div
-                    className={`flex flex-col items-center gap-6 p-4 rounded-2xl transition-all duration-300 hover:shadow-lg ${
-                      shouldUseLightColor ? lightColor : ''
-                    }`}
+                    className={`flex flex-col items-center gap-6 p-4 rounded-2xl transition-all duration-300 hover:shadow-lg ${lightColor}`}
                     key={i}
                   >
-                    {img.image?.url && (
+                    {typeof img.image === 'object' && img.image?.url && (
                       <Image
                         src={img.image.url}
                         alt={img.title || 'Product image'}
