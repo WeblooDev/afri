@@ -33,6 +33,12 @@ export default async function ProductPage({ params }: any) {
 
   if (!product) return notFound()
 
+  // Shuffle images array for better visual variety
+  const shuffledImages = [...(product.data?.images || [])].sort(() => Math.random() - 0.5)
+
+  // Clean light colors for some items
+  const lightColors = ['bg-white', 'bg-gray-50', 'bg-slate-50']
+
   return (
     <>
       <div className="py-16 mt-[120px]">
@@ -46,20 +52,31 @@ export default async function ProductPage({ params }: any) {
         </p>
 
         <div className="container grid gap-10 grid-cols-2 lg:grid-cols-3 mb-8">
-          {product.data?.images?.map((img: any, i: number) => (
-            <div className="flex flex-col items-center gap-6 " key={i}>
-              {img.image?.url && (
-                <Image
-                  src={img.image.url}
-                  alt={img.title}
-                  width={400}
-                  height={300}
-                  className="rounded-2xl shadow h-full max-h-[400px]"
-                />
-              )}
-              <p className="text-center text-lg mt-2 font">{img.title}</p>
-            </div>
-          ))}
+          {shuffledImages.map((img: any, i: number) => {
+            // Apply lighter colors to some items (every 2nd and 3rd item)
+            const shouldUseLightColor = i % 3 === 1 || i % 3 === 2
+            const lightColor = lightColors[i % lightColors.length]
+
+            return (
+              <div
+                className={`flex flex-col items-center gap-6 p-4 rounded-2xl transition-all duration-300 hover:shadow-lg ${
+                  shouldUseLightColor ? lightColor : ''
+                }`}
+                key={i}
+              >
+                {img.image?.url && (
+                  <Image
+                    src={img.image.url}
+                    alt={img.title || 'Product image'}
+                    width={400}
+                    height={300}
+                    className="rounded-2xl shadow h-full max-h-[400px] object-cover"
+                  />
+                )}
+                <p className="text-sm lg:text-xl text-center mt-1 font-medium">{img.title}</p>
+              </div>
+            )
+          })}
         </div>
 
         {product.content?.layout && <RenderBlocks blocks={product.content.layout} />}
