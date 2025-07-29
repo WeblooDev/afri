@@ -51,10 +51,7 @@ export async function Footer() {
                 </div>
               ))}
             </div>
-
-
           </div>
-
 
           {/* Column 3: Internal Page Links */}
           <div className="flex flex-col gap-4 items-center lg:items-end">
@@ -78,7 +75,7 @@ export async function Footer() {
                 Produits
               </Link>
               <Link
-                href="/adresse"
+                href="/contact"
                 className="flex justify-center lg:justify-end text-xl lg:text-2xl hover:underline"
               >
                 Contact
