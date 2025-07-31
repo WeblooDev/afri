@@ -10,7 +10,7 @@ import { CMSLink } from '@/components/Link'
 
 export const HeaderNav: React.FC<Props> = ({ items }) => {
   return (
-    <nav className="hidden md:flex items-center">
+    <nav className="hidden md:flex items-center justify-center">
       {(items || []).map((item, i) => {
         const hasDropdown = Array.isArray(item.subItems) && item.subItems.length > 0
 

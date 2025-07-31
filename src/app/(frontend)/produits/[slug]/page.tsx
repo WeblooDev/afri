@@ -33,11 +33,10 @@ export default async function ProductPage({ params }: any) {
 
   if (!product) return notFound()
 
-  // Shuffle images array for better visual variety
+  // Keep images randomized for visual variety
   const shuffledImages = [...(product.data?.images || [])].sort(() => Math.random() - 0.5)
 
-  // Clean light colors for some items
-  const lightColors = ['bg-white', 'bg-gray-50', 'bg-slate-50']
+  const lightColor = 'bg-gray-50'
 
   return (
     <>
@@ -53,15 +52,9 @@ export default async function ProductPage({ params }: any) {
 
         <div className="container grid gap-10 grid-cols-2 lg:grid-cols-3 mb-8">
           {shuffledImages.map((img: any, i: number) => {
-            // Apply lighter colors to some items (every 2nd and 3rd item)
-            const shouldUseLightColor = i % 3 === 1 || i % 3 === 2
-            const lightColor = lightColors[i % lightColors.length]
-
             return (
               <div
-                className={`flex flex-col items-center gap-6 p-4 rounded-2xl transition-all duration-300 hover:shadow-lg ${
-                  shouldUseLightColor ? lightColor : ''
-                }`}
+                className={`flex flex-col items-center gap-6 p-4 rounded-2xl transition-all duration-300 hover:shadow-lg ${lightColor}`}
                 key={i}
               >
                 {img.image?.url && (
