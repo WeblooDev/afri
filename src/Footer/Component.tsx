@@ -78,6 +78,8 @@ export async function Footer() {
                 href="/contact"
                 className="flex justify-center lg:justify-end text-xl lg:text-2xl hover:underline"
               >
+
+                
                 Contact
               </Link>
             </div>
