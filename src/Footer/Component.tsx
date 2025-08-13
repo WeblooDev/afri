@@ -26,7 +26,7 @@ export async function Footer() {
               typeof about.image === 'object' &&
               'url' in about.image &&
               about.image.url && (
-                <a href="/">
+                <Link href="/">
                   <Image
                     src={about.image.url}
                     alt="About"
@@ -34,7 +34,7 @@ export async function Footer() {
                     height={120}
                     className="rounded-md w-full"
                   />
-                </a>
+                </Link>
               )}
           </div>
 
