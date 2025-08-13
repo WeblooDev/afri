@@ -26,13 +26,15 @@ export async function Footer() {
               typeof about.image === 'object' &&
               'url' in about.image &&
               about.image.url && (
-                <Image
-                  src={about.image.url}
-                  alt="About"
-                  width={300}
-                  height={120}
-                  className="rounded-md w-auto"
-                />
+                <a href="/">
+                  <Image
+                    src={about.image.url}
+                    alt="About"
+                    width={300}
+                    height={120}
+                    className="rounded-md w-full"
+                  />
+                </a>
               )}
           </div>
 
@@ -78,8 +80,6 @@ export async function Footer() {
                 href="/contact"
                 className="flex justify-center lg:justify-end text-xl lg:text-2xl hover:underline"
               >
-
-                
                 Contact
               </Link>
             </div>

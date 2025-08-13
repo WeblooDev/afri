@@ -73,7 +73,7 @@ export const Hero: React.FC<HeroBlock> = ({
                       href={mainImageLink?.url || '#'}
                       className="flex items-center text-sm font-medium hover:underline"
                     >
-                      {mainImageLink?.label || 'Learn More'}
+                      {mainImageLink?.label || 'Découvrir'}
                       <Image src={titledArrow} alt="titledArrow" width={56} height={56} />
                     </Link>
                   </div>
