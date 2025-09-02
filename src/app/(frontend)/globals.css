@@ -102,6 +102,7 @@ html[data-theme='light'] {
   opacity: initial;
 }
 
+
 @font-face {
   font-family: 'PoiretOne';
   src: url('/fonts/PoiretOne-Regular.ttf') format('truetype');
