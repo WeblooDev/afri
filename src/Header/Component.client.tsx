@@ -44,7 +44,6 @@ export const HeaderClient: React.FC<{ data: Header }> = ({ data }) => {
               <Media resource={data.logo} priority className="h-10 !w-auto object-contain" />
             )}
           </Link>
-          <p>pe</p>
         </div>
 
         {/* Desktop Nav */}

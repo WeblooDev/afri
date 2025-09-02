@@ -105,7 +105,7 @@ export default buildConfig({
     tasks: [],
   },
   email: nodemailerAdapter({
-    defaultFromAddress: 'nabileffina@webloo.com',
+    defaultFromAddress: 'contact@afri-sol.com',
     defaultFromName: 'Afrisol',
     transport: nodemailer.createTransport({
       service: 'Gmail',
