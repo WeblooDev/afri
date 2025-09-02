@@ -12,7 +12,7 @@ export const ContactForm: React.FC<ContactFormBlock> = ({ title, description, su
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
   })
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,7 +20,7 @@ export const ContactForm: React.FC<ContactFormBlock> = ({ title, description, su
 
     // Track lead conversion with Meta Pixel
     if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Lead');
+      ;(window as any).fbq('track', 'Lead')
     }
 
     // Handle form submission here
@@ -28,9 +28,9 @@ export const ContactForm: React.FC<ContactFormBlock> = ({ title, description, su
   }
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }))
   }
 
